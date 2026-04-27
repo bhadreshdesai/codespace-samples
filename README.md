@@ -26,3 +26,8 @@ docker compose up -d
 # run the rust app, should return Result: 2
 cargo run
 ```
+
+### step 3
+
+add pgadmin service to docker-compose.yaml
+rename the postgres service to db to stay consistence with other projects
