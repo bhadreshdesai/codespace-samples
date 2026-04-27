@@ -10,3 +10,19 @@ Create devcontainer config using rust bookworm image
 cargo init
 cargo run
 ```
+
+### step 2
+
+```shell
+# add postgres dependency
+cargo add postgres
+
+# update main.rs to connect to postgres and run a select
+
+# Note: if you change the username, password or dbname then reset the docker volume using docker compose down -v
+# start the postgres db.
+docker compose up -d
+
+# run the rust app, should return Result: 2
+cargo run
+```
