@@ -2,8 +2,11 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
 	"name": "Rust",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/rust:2-1-bookworm",
+	// Use docker-compose so the devcontainer shares a network with the 'db' service.
+	// This makes POSTGRES_HOST=db work on both macOS Docker Desktop and Codespaces.
+	"dockerComposeFile": ["../docker-compose.yaml", "docker-compose.devcontainer.yaml"],
+	"service": "devcontainer",
+	"workspaceFolder": "/workspaces/codespace-samples",
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	}
