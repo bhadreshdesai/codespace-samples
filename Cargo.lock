@@ -85,6 +85,7 @@ checksum = "3f88a43d011fc4a6876cb7344703e297c71dda42494fee094d5f7c76bf13f746"
 name = "codespace-samples"
 version = "0.1.0"
 dependencies = [
+ "dotenvy",
  "postgres",
 ]
 
@@ -132,6 +133,12 @@ dependencies = [
  "crypto-common",
  "ctutils",
 ]
+
+[[package]]
+name = "dotenvy"
+version = "0.15.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1aaf95b3e5c8f23aa320147307562d361db0ae0d51242340f558153b4eb2439b"
 
 [[package]]
 name = "equivalent"

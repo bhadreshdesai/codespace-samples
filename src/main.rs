@@ -1,10 +1,19 @@
+use dotenvy::dotenv;
 use postgres::{Client, NoTls};
+use std::env;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Silently ignore if .env is missing
+    dotenv().ok();
+    let pgdbname = env::var("POSTGRES_DB").unwrap_or_else(|_| "pgdb".to_string());
+    let pguser = env::var("POSTGRES_USER").unwrap_or_else(|_| "pguser".to_string());
+    let pgpwd = env::var("POSTGRES_PASSWORD").unwrap_or_else(|_| "pgpwd".to_string());
+    let connect_params = format!("host=localhost dbname={} user={} password={}", pgdbname, pguser, pgpwd);
+
     // 1. Establish connection
     let mut client = Client::connect(
-        "host=localhost user=pguser password=pgpwd dbname=pgdb",
-        NoTls
+        &connect_params,
+        NoTls,
     )?;
 
     // 2. Execute a query

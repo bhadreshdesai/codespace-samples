@@ -31,3 +31,9 @@ cargo run
 
 add pgadmin service to docker-compose.yaml
 rename the postgres service to db to stay consistence with other projects
+
+### step 4
+use .env environment variables for docker-compose and rust app
+```shell
+cargo add dotenvy
+```
