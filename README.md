@@ -49,3 +49,23 @@ fix devcontainer issue by using `dockerComposeFile` option in [devcontainer.json
 
 Note: it takes about 45 seconds to access the pgadmin. Look for Starting gunicorn 23.0.0 and Listening at: http://[::]:5050 (1)
 
+## TODO
+fix health check for postgres and pgadmin. Add postgres dependency to pgadmin
+fix ports
+```json
+{
+  "name": "My Dev Container",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "forwardPorts": [
+    3000,
+    "db:5432"
+  ],
+  "portsAttributes": {
+    "db:5432": {
+      "label": "PostgreSQL Database"
+    }
+  }
+}   
+```
+
