@@ -5,7 +5,7 @@ services:
       # ../docker-compose.yaml is first in the list in devcontainer.json, so the project root becomes the working director
       # .env from project root is picked up
       # current director(project root and not where this file is) is mapped to /workspaces/codespace-samples
-      - .:/workspaces/codespace-samples:cached
+      - .:/workspaces/${REPO_FLDR_NAME}:cached
     command: sleep infinity
     depends_on:
       - db

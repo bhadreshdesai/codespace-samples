@@ -1,6 +1,6 @@
 x-healthcheck-defaults: &healthcheck-defaults
-  start_period: 30s # Duration of the initial grace period
-  start_interval: 1s # Check every 1s during start_period
+  # start_period: 30s # Duration of the initial grace period
+  # start_interval: 1s # Check every 1s during start_period
   interval: 10s # Check every 2 minutes after start_period, set to 10s for now as codespace does not support start_interval as it is using docker engine v24 change this to 2m once docker engine is >= v25
   timeout: 5s
   retries: 3
