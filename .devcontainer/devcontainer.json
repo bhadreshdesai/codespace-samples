@@ -34,7 +34,7 @@
         "pgadmin:5050": {
             "label": "pgAdmin"
         }
-    }
+    },
     // Uncomment the next line if you want start specific services in your Docker Compose config.
     // "runServices": [],
     // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
@@ -42,7 +42,17 @@
     // Uncomment the next line to run commands after the container is created.
     // "postCreateCommand": "cat /etc/os-release",
     // Configure tool-specific properties.
-    // "customizations": {},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "atommaterial.a-file-icon-vscode",
+                "akamud.vscode-theme-onedark",
+                "huntertran.auto-markdown-toc",
+                "TakumiI.markdowntable",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    }
     // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "devcontainer"
 }
