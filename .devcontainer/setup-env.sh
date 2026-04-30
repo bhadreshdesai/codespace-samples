@@ -3,14 +3,8 @@
 REPO_FLDR_NAME=$(basename "$(git rev-parse --show-toplevel 2>/dev/null || pwd)")
 # Export to .env file for docker-compose to use
 
-pwd
-ls -la
-
-FILE="example.env"
-[ -f "$FILE" ] && echo "File exists." || echo "File does not exist."
-
-cp $FILE .env
-echo "REPO_FLDR_NAME=$REPO_FLDR_NAME" >> "$ENV_FILE"
+cp example.env .env
+echo "REPO_FLDR_NAME=$REPO_FLDR_NAME" >> .env
 
 # # Add or update REPO_FLDR_NAME in the parent .env file
 # ENV_FILE=".env"
