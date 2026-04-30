@@ -59,9 +59,9 @@ services:
       - "5050:5050"
     volumes:
       - pgadmin-data:/var/lib/pgadmin
-    depends_on:
-      db:
-        condition: service_healthy
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
     # healthcheck:
     #   <<: *healthcheck-defaults
     #   test: [ "CMD", "wget", "-O", "-", "http://localhost:5050/misc/ping" ]

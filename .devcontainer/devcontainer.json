@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-    "name": "Existing Docker Compose (Extend)",
+    "name": "Node",
     "initializeCommand": "cp example.env .env",
     // Update the 'dockerComposeFile' list if you have more compose files or use different names.
     // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -19,6 +19,10 @@
     "features": {
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
             "moby": false
+        },
+        "ghcr.io/devcontainers/features/git-lfs:1": {
+            "version": "latest",
+            "autoPull": true
         }
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
