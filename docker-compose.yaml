@@ -1,9 +1,10 @@
-x-healthcheck-defaults: &healthcheck-defaults
-  # start_period: 30s # Duration of the initial grace period
-  # start_interval: 1s # Check every 1s during start_period
-  interval: 10s # Check every 2 minutes after start_period, set to 10s for now as codespace does not support start_interval as it is using docker engine v24 change this to 2m once docker engine is >= v25
-  timeout: 5s
-  retries: 3
+# disable healthcheck as codespace does not support start_interval
+# x-healthcheck-defaults: &healthcheck-defaults
+#   start_period: 30s # Duration of the initial grace period
+#   start_interval: 1s # Check every 1s during start_period
+#   interval: 2m # Check every 2 minutes after start_period, set to 10s for now as codespace does not support start_interval as it is using docker engine v24 change this to 2m once docker engine is >= v25
+#   timeout: 5s
+#   retries: 3
 volumes:
   pgadmin-data:
   postgres-data:
@@ -20,9 +21,9 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-pgdb}
       POSTGRES_USER: ${POSTGRES_USER:-pguser}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pgpwd}
-    healthcheck:
-      <<: *healthcheck-defaults
-      test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-pguser} -d $${POSTGRES_DB:-pgdb} || exit 1" ]
+    # healthcheck:
+    #   <<: *healthcheck-defaults
+    #   test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-pguser} -d $${POSTGRES_DB:-pgdb} || exit 1" ]
   pgadmin:
     image: dpage/pgadmin4:9
     environment:
@@ -61,6 +62,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    healthcheck:
-      <<: *healthcheck-defaults
-      test: [ "CMD", "wget", "-O", "-", "http://localhost:5050/misc/ping" ]
+    # healthcheck:
+    #   <<: *healthcheck-defaults
+    #   test: [ "CMD", "wget", "-O", "-", "http://localhost:5050/misc/ping" ]
